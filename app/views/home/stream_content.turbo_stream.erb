@@ -1,0 +1,7 @@
+<%= turbo_stream.replace 'dynamic_content' do %>
+  This was updated from a turbo stream replace action
+<% end %>
+
+<%= turbo_stream.append 'dynamic_content2' do %>
+  <p>This is an appended paragraph to the dynamic content.</p>
+<% end %>
