@@ -50,25 +50,3 @@ Current Time: <%= Time.current %> (for seeing page reloads)
 <% end %>
 
 <hr>
-
-<h1>Turbo Streams</h1>
-<div id="dynamic_content">
-  <p>Current time: <%= Time.current %></p>
-</div>
-<div id="dynamic_content2">
-  <p>Current time: <%= Time.current %></p>
-</div>
-
-<%= form_with url: home_stream_content_path, method: :post do |form| %>
-  <%= form.label :name, "Enter your name:" %>
-  <%= form.text_field :name %>
-  <%= form.submit "Submit" %>
-<% end %>
-
-
-<%= form_with url: home_stream_content_path, method: :post do |form| %>
-  <%= form.label :name, "Enter your name:" %>
-  <%= form.hidden_field :redirect, value: "true" %>
-  <%= form.text_field :name %>
-  <%= form.submit "Submit & Breakout" %>
-<% end %>

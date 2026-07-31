@@ -1,0 +1,36 @@
+
+<h1>Turbo Streams</h1>
+<div id="dynamic_content">
+  <p>Current time: <%= Time.current %></p>
+</div>
+<div id="dynamic_content2">
+  <p>Current time: <%= Time.current %></p>
+</div>
+
+<%= link_to "Link with a turbo stream response - requires turbo stream true on get requests", view_turbo_stream_response_path, data: { turbo_stream: true } %>
+
+<%= form_with url: turbo_stream_response_path, method: :post do |form| %>
+  this form returns a turbo stream response that updates the current page
+  <%= form.submit "Submit" %>
+<% end %>
+
+<%= form_with url: turbo_stream_redirect_path, method: :post do |form| %>
+  this form returns a turbo stream response that contains a redirect action
+  <%= form.submit "Submit & Breakout" %>
+<% end %>
+
+<%= form_with url: turbo_stream_html_redirect_path, method: :post do |form| %>
+  this form returns an HTML response that is a redirect
+  <%= form.submit "Submit & Breakout" %>
+<% end %>
+
+<%= form_with url: turbo_stream_400_error_path, method: :post do |form| %>
+  this form raises a 400 error which results in a full page reload
+  <%= form.submit "Submit" %>
+<% end %>
+
+<%= form_with url: turbo_stream_500_error_path, method: :post do |form| %>
+  this form raises a 500 error which results a full page replacement with the error page. No history entry is created for this response.
+  <%= form.submit "Submit" %>
+<% end %>
+
